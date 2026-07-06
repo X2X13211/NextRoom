@@ -119,16 +119,6 @@
         {% for room in rooms %}
         <div class="flex flex-col justify-between p-6 rounded-2xl glass-panel premium-card animate-fade-in group relative" style="animation-delay: calc({{ forloop.counter0 }} * 0.05s);">
             
-            <!-- Room Owner Action (Delete) -->
-            {% if room.creator == user %}
-            <form action="{% url 'delete_room' room.slug %}" method="POST" onsubmit="return confirm('Вы уверены, что хотите удалить комнату? Все сообщения будут навсегда стерты.');" class="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition duration-200">
-                {% csrf_token %}
-                <button type="submit" class="p-2 bg-red-950/30 text-red-400 hover:text-red-200 hover:bg-red-900/40 rounded-xl border border-red-500/10 transition" title="Удалить комнату">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
-                </button>
-            </form>
-            {% endif %}
-
             <div>
                 <!-- Badge header -->
                 <div class="flex justify-between items-center mb-4">

@@ -96,6 +96,18 @@ class AIIntegration(models.Model):
     def __str__(self):
         return f'{self.provider} integration for {self.profile.user.username}'
 
+class RoomAIIntegration(models.Model):
+    room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='ai_integrations')
+    provider = models.CharField(max_length=30, choices=AI_PROVIDER_CHOICES)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('room', 'provider')
+
+    def __str__(self):
+        return f'{self.provider} enabled for {self.room.name}'
+
+
 class RoomInvitation(models.Model):
     room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='invitations')
     invited_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sent_invitations')
