@@ -1,0 +1,10 @@
+{% extends "admin/change_list.html" %}
+
+{% block object-tools-items %}
+  {{ block.super }}
+  <li>
+    <a href="{% url 'admin:chat_userprofile_grant_premium_by_id' %}" class="addlink">
+      Выдать Premium по ID
+    </a>
+  </li>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'chat/base.html' %}
+
+{% block title %}Вход в систему — NextRoom{% endblock %}
+
+{% block content %}
+<div class="flex min-h-[calc(100vh-4rem-3.5rem)] flex-col justify-center px-6 py-12 lg:px-8 items-center">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md text-center">
+        <h2 class="text-3xl font-extrabold tracking-tight text-white">С возвращением</h2>
+        <p class="mt-2 text-sm text-slate-400">
+            Войдите в свой аккаунт для продолжения общения
+        </p>
+    </div>
+
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="glass-panel py-8 px-6 shadow-2xl rounded-2xl sm:px-10">
+            <form class="space-y-6" action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                
+                <div>
+                    <label for="username" class="block text-sm font-medium text-slate-300">Имя пользователя (никнейм)</label>
+                    <div class="mt-2">
+                        <input id="username" name="username" type="text" required placeholder="Ваш никнейм"
+                            class="block w-full rounded-xl py-3 px-4 text-sm glass-input placeholder-slate-600">
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-between">
+                        <label for="password" class="block text-sm font-medium text-slate-300">Пароль</label>
+                    </div>
+                    <div class="mt-2">
+                        <input id="password" name="password" type="password" required placeholder="••••••••"
+                            class="block w-full rounded-xl py-3 px-4 text-sm glass-input placeholder-slate-600">
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit"
+                        class="flex w-full justify-center rounded-xl bg-gradient-to-r from-brand-600 to-indigo-500 hover:from-brand-500 hover:to-indigo-400 py-3 px-4 text-sm font-semibold text-white shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30 transition">
+                        Войти
+                    </button>
+                </div>
+            </form>
+
+            <div class="mt-6 text-center">
+                <p class="text-xs text-slate-400">
+                    Впервые у нас?
+                    <a href="{% url 'register' %}" class="font-semibold text-indigo-400 hover:text-indigo-300 transition">Создайте новый аккаунт</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

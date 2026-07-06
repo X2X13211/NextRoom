@@ -1,0 +1,389 @@
+{% extends 'chat/base.html' %}
+
+{% block title %}{{ room.name }} — NextRoom{% endblock %}
+
+{% block content %}
+<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 w-full flex-grow flex flex-col h-[calc(100vh-4rem-3.5rem)] overflow-hidden">
+    <!-- Breadcrumb / Header navigation -->
+    <div class="flex items-center justify-between mb-4 shrink-0">
+        <a href="{% url 'dashboard' %}" class="flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition group">
+            <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+            Назад в панель
+        </a>
+        <div class="flex items-center gap-2">
+            <span class="inline-flex items-center rounded-md bg-indigo-400/10 px-2.5 py-1 text-xs font-semibold text-indigo-400 ring-1 ring-inset ring-indigo-400/20">
+                {{ room.get_category_display }}
+            </span>
+            {% if room.is_private %}
+                <span class="text-xs text-amber-450 bg-amber-500/10 px-2.5 py-1 rounded-md flex items-center gap-1 font-semibold border border-amber-550/20">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+                    Приватная
+                </span>
+            {% else %}
+                <span class="text-xs text-emerald-450 bg-emerald-500/10 px-2.5 py-1 rounded-md flex items-center gap-1 font-semibold border border-emerald-550/20">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V9a2 2 0 002 2h2a2 2 0 012 2v.5a.5.5 0 001 0V13a3 3 0 00-3-3h-1.586A1.986 1.986 0 0110 9.414V8.5a.5.5 0 00-1 0V9a3 3 0 003 3h2a1 1 0 011 1v.09a3.001 3.001 0 01-6 0V13a.5.5 0 00-1 0v.5a5 5 0 004.83 4.985A8.003 8.003 0 014.332 8.027z" clip-rule="evenodd"/></svg>
+                    Открытая
+                </span>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Main Layout Container: Sidebar + Chatbox -->
+    <div class="flex flex-col md:flex-row flex-grow gap-6 overflow-hidden min-h-0">
+        
+        <!-- SIDEBAR: Room info & stats -->
+        <aside class="w-full md:w-80 flex flex-col gap-4 shrink-0 overflow-y-auto pb-4 md:pb-0">
+            <!-- Room general details -->
+            <div class="glass-panel p-5 rounded-2xl flex flex-col gap-4">
+                <div>
+                    <h1 class="text-2xl font-black text-white leading-tight truncate" title="{{ room.name }}">{{ room.name }}</h1>
+                    <span class="text-xs text-slate-500 block mt-1">
+                        Автор: <span class="text-slate-400 font-medium">{{ room.creator.username }}</span>
+                    </span>
+                </div>
+                
+                <p class="text-sm text-slate-400 leading-relaxed border-t border-slate-900/60 pt-3">
+                    {% if room.description %}{{ room.description }}{% else %}Нет описания этой комнаты. Создайте тему для общения самостоятельно!{% endif %}
+                </p>
+
+                <div class="flex flex-col gap-2 pt-1">
+                    <button id="copy-link-btn" class="w-full rounded-xl bg-slate-900 border border-slate-800 hover:bg-slate-850 py-2.5 px-4 text-xs font-semibold text-slate-300 hover:text-white transition flex items-center justify-center gap-1.5">
+                        <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 10.742a3 3 0 000 4.516l2.92 2.92a3 3 0 004.517 0l2.92-2.92a3 3 0 000-4.516l-1.042-1.043m-10.74 0L7.75 9.75a3 3 0 00-4.517 0L.313 12.67a3 3 0 000 4.516l2.92 2.92a3 3 0 004.517 0l1.043-1.042M13.5 10.5l-3 3"/></svg>
+                        <span>Пригласить друзей</span>
+                    </button>
+                    
+                    {% if room.creator == user %}
+                        <form action="{% url 'delete_room' room.slug %}" method="POST" onsubmit="return confirm('Вы действительно хотите удалить эту комнату? Все сообщения будут стерты навсегда.');">
+                            {% csrf_token %}
+                            <button type="submit" class="w-full rounded-xl bg-red-950/20 border border-red-950/40 hover:bg-red-950/40 hover:border-red-500/30 py-2.5 px-4 text-xs font-semibold text-red-400 hover:text-red-300 transition flex items-center justify-center gap-1.5">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                                Удалить комнату
+                            </button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Active users list -->
+            <div class="glass-panel p-5 rounded-2xl flex-grow flex flex-col min-h-[180px]">
+                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Участники
+                </h3>
+                <div class="flex-grow overflow-y-auto pr-1 flex flex-col gap-2.5" id="members-list">
+                    {% for member in recent_members %}
+                        <div class="flex items-center gap-2.5 py-1">
+                            <div class="relative">
+                                <div class="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center font-bold text-xs uppercase">
+                                    {{ member.username|slice:":2" }}
+                                </div>
+                            </div>
+                            <span class="text-sm text-slate-350 font-medium truncate">{{ member.username }}</span>
+                            {% if member == room.creator %}
+                                <span class="text-[9px] bg-indigo-650/40 text-indigo-350 border border-indigo-550/20 px-1.5 py-0.5 rounded-md font-semibold ml-auto shrink-0">Создатель</span>
+                            {% endif %}
+                        </div>
+                    {% empty %}
+                        <p class="text-xs text-slate-550 italic">В этой комнате пока нет сообщений.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </aside>
+
+        <!-- CHATBOX PANEL: message list + input -->
+        <main class="flex-grow glass-panel rounded-2xl flex flex-col overflow-hidden min-h-0 relative">
+            <!-- Chat screen status message (shown when empty) -->
+            <div id="no-messages-alert" class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-slate-950/20 backdrop-blur-[1px] pointer-events-none hidden">
+                <div class="p-3 bg-indigo-550/5 text-slate-500 rounded-full mb-3">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                </div>
+                <p class="text-sm text-slate-400 font-semibold">История сообщений пуста</p>
+                <p class="text-xs text-slate-500 mt-0.5">Напишите что-нибудь, чтобы начать диалог!</p>
+            </div>
+
+            <!-- Messages List Container -->
+            <div id="messages-container" class="flex-grow overflow-y-auto p-6 space-y-4 flex flex-col justify-start">
+                {% for msg in chat_messages %}
+                    <!-- Message Bubble wrapper -->
+                    <div class="flex flex-col max-w-[80%] {% if msg.user == user %}self-end items-end{% else %}self-start items-start{% endif %}" data-message-id="{{ msg.id }}">
+                        <span class="text-[10px] text-slate-500 mb-1 px-1 font-medium">
+                            {% if msg.user == user %}Вы{% else %}{{ msg.user.username }}{% endif %}
+                        </span>
+                        
+                        <div class="px-4 py-2.5 rounded-2xl text-sm leading-relaxed break-words {% if msg.user == user %}bg-gradient-to-tr from-brand-600 to-indigo-500 text-white rounded-tr-none shadow-md shadow-brand-600/5{% else %}glass-panel text-slate-100 rounded-tl-none border-slate-800{% endif %}">
+                            {{ msg.content|linebreaksbr }}
+                        </div>
+                        
+                        <span class="text-[9px] text-slate-550 mt-1 px-1">
+                            {{ msg.created_at|date:"H:i" }}
+                        </span>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- Chat input form -->
+            <div class="p-4 border-t border-slate-900 bg-slate-950/40">
+    <form id="chat-form" class="flex gap-3 items-end">
+        {% csrf_token %}
+        <div class="flex-grow relative">
+            <textarea id="message-input" rows="1" max-rows="4" required placeholder="Напишите сообщение..."
+                class="block w-full rounded-xl py-3 pl-4 pr-14 text-sm glass-input placeholder-slate-600 resize-none max-h-32 min-h-[44px] leading-relaxed transition-all scrollbar-none"></textarea>
+            <button type="submit" 
+                    class="absolute right-2 bottom-2 h-9 w-9 rounded-xl text-slate-300 hover:text-white transition duration-300 group flex items-center justify-center">
+                <span class="absolute inset-0 w-full h-full rounded-xl transition duration-300 ease-out transform translate-x-0.5 translate-y-0.5 bg-indigo-900/20 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                <span class="absolute inset-0 w-full h-full rounded-xl bg-slate-800/60 border border-slate-700/40 group-hover:bg-indigo-900/20 group-hover:border-indigo-500/30 transition duration-300"></span>
+                <span class="relative z-10 flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </form>
+</div>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const messagesContainer = document.getElementById('messages-container');
+        const chatForm = document.getElementById('chat-form');
+        const messageInput = document.getElementById('message-input');
+        const noMessagesAlert = document.getElementById('no-messages-alert');
+        const membersList = document.getElementById('members-list');
+        const copyLinkBtn = document.getElementById('copy-link-btn');
+
+        const currentUser = "{{ user.username }}";
+        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        
+        // Track the last message ID rendered to avoid double rendering
+        let lastMessageId = 0;
+        const msgDivs = messagesContainer.querySelectorAll('[data-message-id]');
+        if (msgDivs.length > 0) {
+            lastMessageId = parseInt(msgDivs[msgDivs.length - 1].getAttribute('data-message-id'));
+        }
+
+        // Helper to check if any messages exist
+        function updateNoMessagesAlert() {
+            const hasMessages = messagesContainer.querySelectorAll('[data-message-id]').length > 0;
+            if (hasMessages) {
+                noMessagesAlert.classList.add('hidden');
+            } else {
+                noMessagesAlert.classList.remove('hidden');
+            }
+        }
+        updateNoMessagesAlert();
+
+        // Scroll to bottom
+        function scrollToBottom() {
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        scrollToBottom();
+
+        // Escape HTML for safety
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    "'": '&#39;',
+                    '"': '&quot;'
+                }[tag] || tag)
+            );
+        }
+
+        // Auto-resize input area
+        messageInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+
+        // Submit via Enter key
+        messageInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                chatForm.dispatchEvent(new Event('submit'));
+            }
+        });
+
+        // Copy Room Link to clipboard
+        copyLinkBtn.addEventListener('click', () => {
+            const roomUrl = window.location.href;
+            navigator.clipboard.writeText(roomUrl).then(() => {
+                const textSpan = copyLinkBtn.querySelector('span');
+                const originalText = textSpan.textContent;
+                textSpan.textContent = 'Ссылка скопирована!';
+                copyLinkBtn.classList.remove('border-slate-800', 'text-slate-350');
+                copyLinkBtn.classList.add('border-emerald-500/40', 'text-emerald-400');
+                
+                setTimeout(() => {
+                    textSpan.textContent = originalText;
+                    copyLinkBtn.classList.add('border-slate-800', 'text-slate-350');
+                    copyLinkBtn.classList.remove('border-emerald-500/40', 'text-emerald-400');
+                }, 2000);
+            }).catch(err => {
+                console.error('Ошибка копирования ссылки: ', err);
+            });
+        });
+
+        // Append message to UI helper
+        function renderMessage(msg) {
+            // Check if already in container
+            if (messagesContainer.querySelector(`[data-message-id="${msg.id}"]`)) {
+                return;
+            }
+
+            const isMe = msg.is_me || msg.username === currentUser;
+            const bubbleWrapper = document.createElement('div');
+            bubbleWrapper.className = `flex flex-col max-w-[80%] ${isMe ? 'self-end items-end' : 'self-start items-start'}`;
+            bubbleWrapper.setAttribute('data-message-id', msg.id);
+
+            const safeContent = escapeHTML(msg.content).replace(/\n/g, '<br>');
+
+            bubbleWrapper.innerHTML = `
+                <span class="text-[10px] text-slate-550 mb-1 px-1 font-medium">
+                    ${isMe ? 'Вы' : escapeHTML(msg.username)}
+                </span>
+                <div class="px-4 py-2.5 rounded-2xl text-sm leading-relaxed break-words ${isMe ? 'bg-gradient-to-tr from-brand-600 to-indigo-500 text-white rounded-tr-none shadow-md shadow-brand-600/5' : 'glass-panel text-slate-100 rounded-tl-none border-slate-800'}">
+                    ${safeContent}
+                </div>
+                <span class="text-[9px] text-slate-550 mt-1 px-1">
+                    ${msg.timestamp}
+                </span>
+            `;
+
+            messagesContainer.appendChild(bubbleWrapper);
+            
+            // Add user to active members sidebar list if not present
+            updateSidebarMembers(msg.username);
+        }
+
+        // Update active members sidebar list if user is missing
+        function updateSidebarMembers(username) {
+            const normalizedUser = username.trim();
+            // Look for existing user in sidebar list
+            const existingSpans = Array.from(membersList.querySelectorAll('span.text-sm'));
+            const userExists = existingSpans.some(span => span.textContent.trim() === normalizedUser);
+            
+            if (!userExists) {
+                // Remove placeholder text if it's the first member
+                const placeholder = membersList.querySelector('p.italic');
+                if (placeholder) {
+                    placeholder.remove();
+                }
+
+                const memberDiv = document.createElement('div');
+                memberDiv.className = 'flex items-center gap-2.5 py-1';
+                
+                const initials = escapeHTML(normalizedUser.substring(0, 2));
+
+                memberDiv.innerHTML = `
+                    <div class="relative">
+                        <div class="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center font-bold text-xs uppercase">
+                            ${initials}
+                        </div>
+                    </div>
+                    <span class="text-sm text-slate-350 font-medium truncate">${escapeHTML(normalizedUser)}</span>
+                `;
+                
+                membersList.appendChild(memberDiv);
+            }
+        }
+
+        // Send message API request
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const content = messageInput.value.trim();
+            if (!content) return;
+
+            // Clear input area immediately for responsiveness
+            messageInput.value = '';
+            messageInput.style.height = 'auto';
+
+            fetch("{% url 'send_message' room.slug %}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                },
+                body: JSON.stringify({ content: content })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    // Instantly render message
+                    renderMessage(data.message);
+                    lastMessageId = Math.max(lastMessageId, data.message.id);
+                    updateNoMessagesAlert();
+                    scrollToBottom();
+                    if (data.bot_message) {
+                        renderMessage(data.bot_message);
+                        lastMessageId = Math.max(lastMessageId, data.bot_message.id);
+                        updateNoMessagesAlert();
+                        scrollToBottom();
+                    }
+                    // Perform verification fetch to pull any concurrently posted messages
+                    pollMessages();
+                } else {
+                    console.error('Ошибка отправки: ', data.error);
+                }
+            })
+            .catch(err => {
+                console.error('Ошибка сети при отправке сообщения: ', err);
+            });
+        });
+
+        // Polling loop
+        function pollMessages() {
+            fetch(`{% url 'get_messages' room.slug %}?after_id=${lastMessageId}`)
+            .then(res => {
+                if (res.status === 403) {
+                    // Unauthorized: maybe session expired or logged out
+                    window.location.reload();
+                    return;
+                }
+                return res.json();
+            })
+            .then(data => {
+                if (data && data.messages && data.messages.length > 0) {
+                    let hasNew = false;
+                    data.messages.forEach(msg => {
+                        if (msg.id > lastMessageId) {
+                            renderMessage(msg);
+                            lastMessageId = Math.max(lastMessageId, msg.id);
+                            hasNew = true;
+                        }
+                    });
+                    if (hasNew) {
+                        updateNoMessagesAlert();
+                        scrollToBottom();
+                    }
+                }
+            })
+            .catch(err => {
+                // Silently handle error or network loss
+                console.warn('Ошибка опроса сообщений: ', err);
+            });
+        }
+
+        // Start polling interval
+        let pollInterval = setInterval(pollMessages, 2000);
+
+        // Pause polling when tab is inactive to optimize server load & resource usage
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                clearInterval(pollInterval);
+            } else {
+                pollMessages(); // Poll immediately
+                pollInterval = setInterval(pollMessages, 2000);
+            }
+        });
+    });
+</script>
+{% endblock %}

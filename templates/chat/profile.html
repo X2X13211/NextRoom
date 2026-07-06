@@ -1,0 +1,195 @@
+{% extends 'chat/base.html' %}
+
+{% block title %}Личный кабинет — NextRoom{% endblock %}
+
+{% block content %}
+<div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 w-full flex-grow flex flex-col gap-8">
+    <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+        <section class="glass-panel rounded-3xl p-6">
+            <div class="flex flex-col gap-6">
+                <div class="flex flex-col xl:flex-row xl:items-start xl:justify-between gap-5">
+                    <div class="max-w-2xl">
+                        <div class="inline-flex items-center rounded-full border border-indigo-500/20 bg-indigo-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-indigo-300">
+                            Личный кабинет
+                        </div>
+                        <h1 class="mt-4 text-3xl font-black text-white">Добро пожаловать, {{ user.username }}!</h1>
+                        <p class="mt-3 text-sm leading-6 text-slate-400">Управляйте комнатами, подпиской и AI-интеграциями в одном месте. Здесь всё собрано так, чтобы быстро находить нужное и не терять темп.</p>
+                        <div class="mt-5 flex flex-wrap gap-3">
+                            <a href="{% url 'dashboard' %}" class="rounded-2xl border border-slate-700/70 bg-slate-900/80 px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-indigo-500/40 hover:text-white">Открыть комнаты</a>
+                            <a href="#ai-panel" class="rounded-2xl border border-slate-700/70 bg-slate-900/80 px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-indigo-500/40 hover:text-white">Настроить нейросети</a>
+                        </div>
+                    </div>
+                    <div class="rounded-3xl border border-slate-800 bg-slate-950/70 p-4 text-center min-w-[220px]">
+                        <p class="text-[11px] uppercase tracking-[0.26em] text-slate-500">Текущий тариф</p>
+                        <p class="mt-3 text-2xl font-bold text-white">{{ profile.active_plan }}</p>
+                        {% if profile.is_premium %}
+                            <p class="mt-1 text-xs text-slate-400">Действует до {{ profile.premium_until|date:'d.m.Y' }}</p>
+                        {% else %}
+                            <p class="mt-1 text-xs text-slate-400">Free: доступно ограниченное количество функций.</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="grid gap-4 md:grid-cols-3">
+                    <div class="rounded-3xl border border-slate-800 bg-slate-950/70 p-5">
+                        <p class="text-[11px] uppercase tracking-[0.24em] text-slate-400">Моих комнат</p>
+                        <p class="mt-3 text-3xl font-black text-white">{{ my_rooms.count }}</p>
+                        <p class="mt-2 text-sm text-slate-400">Из {{ profile.room_limit }} доступных</p>
+                    </div>
+                    <div class="rounded-3xl border border-slate-800 bg-slate-950/70 p-5">
+                        <p class="text-[11px] uppercase tracking-[0.24em] text-slate-400">Посещено комнат</p>
+                        <p class="mt-3 text-3xl font-black text-white">{{ visited_rooms.count }}</p>
+                        <p class="mt-2 text-sm text-slate-400">История активных бесед</p>
+                    </div>
+                    <div class="rounded-3xl border border-slate-800 bg-slate-950/70 p-5">
+                        <p class="text-[11px] uppercase tracking-[0.24em] text-slate-400">Подписка</p>
+                        <p class="mt-3 text-3xl font-black text-white">{% if profile.is_premium %}Активна{% else %}Free{% endif %}</p>
+                        <p class="mt-2 text-sm text-slate-400">Открывайте новые возможности прямо сейчас</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                <div class="rounded-3xl border border-slate-800 bg-slate-950/70 p-5">
+                    <h2 class="text-sm font-semibold text-slate-300 uppercase tracking-[0.24em]">Free</h2>
+                    <p class="mt-3 text-sm text-slate-400 leading-relaxed">Подключайтесь к открытым комнатам и закрытым комнатам по приглашению. Создавайте до 5 комнат и приглашайте до 10 человек.</p>
+                </div>
+                <div class="rounded-3xl border border-slate-800 bg-slate-950/70 p-5">
+                    <h2 class="text-sm font-semibold text-slate-300 uppercase tracking-[0.24em]">Premium за 199 ₽/мес</h2>
+                    <p class="mt-3 text-sm text-slate-400 leading-relaxed">Создавайте до 30 комнат, приглашайте без ограничений и добавляйте нейросети по API ключам: @gpt, @grok, @deepseek, @qwen, @claude.</p>
+                </div>
+            </div>
+
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div class="rounded-3xl border border-slate-800 bg-slate-950/70 p-5">
+                    <p class="text-sm text-slate-400">Сейчас вы можете создавать до <span class="font-semibold text-white">{{ profile.room_limit }}</span> комнат.</p>
+                    {% if profile.invite_limit is not None %}
+                    <p class="mt-1 text-sm text-slate-400">Лимит приглашений: <span class="font-semibold text-white">{{ profile.invite_limit }}</span> человек на комнату.</p>
+                    {% else %}
+                    <p class="mt-1 text-sm text-slate-400">Приглашения без ограничений.</p>
+                    {% endif %}
+                </div>
+                <form action="{% url 'create_yookassa_subscription' %}" method="POST" class="relative inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-slate-300 hover:text-white transition duration-300 group">
+                    {% csrf_token %}
+                    <button type="submit" class="relative inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-slate-300 hover:text-white transition duration-300 group">
+                        <span class="absolute inset-0 w-full h-full rounded-xl transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-indigo-900/50 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                        <span class="absolute inset-0 w-full h-full rounded-xl bg-slate-800/80 border border-slate-700/50 group-hover:bg-indigo-900/40 transition duration-300"></span>
+                        <span class="relative z-10">Перейти на Premium — 199 ₽/мес</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <aside class="flex flex-col gap-4">
+            <div id="ai-panel" class="glass-panel rounded-3xl p-6">
+                <h2 class="text-lg font-bold text-white mb-4">Управление нейросетями</h2>
+                {% if profile.is_premium %}
+                <form action="{% url 'add_ai_integration' %}" method="POST" class="space-y-4">
+                    {% csrf_token %}
+                    <div>
+                        <label for="provider" class="block text-sm font-medium text-slate-300">Модель нейросети</label>
+                        <select id="provider" name="provider" class="mt-2 block w-full rounded-2xl bg-slate-900 border border-slate-800 px-4 py-3 text-sm text-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                            <option value="">Выберите модель</option>
+                            {% for value, label in available_providers %}
+                                <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <label for="api_key" class="block text-sm font-medium text-slate-300">API ключ</label>
+                        <input id="api_key" name="api_key" type="text" placeholder="Секретный ключ провайдера" class="mt-2 block w-full rounded-2xl bg-slate-900 border border-slate-800 px-4 py-3 text-sm text-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                    </div>
+                    <button type="submit" class="relative inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-slate-300 hover:text-white transition duration-300 group">
+                        <span class="absolute inset-0 w-full h-full rounded-xl transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-indigo-900/50 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                        <span class="absolute inset-0 w-full h-full rounded-xl bg-slate-800/80 border border-slate-700/50 group-hover:bg-indigo-900/40 transition duration-300"></span>
+                        <span class="relative z-10">Сохранить ключ</span>
+                    </button>
+                </form>
+                {% else %}
+                <div class="rounded-3xl border border-slate-800 bg-slate-950/70 p-5 space-y-4">
+                    <p class="text-sm text-slate-400">Добавление API ключей доступно только для пользователей Premium.</p>
+                    <form action="{% url 'create_yookassa_subscription' %}" method="POST" class="relative inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-slate-300 hover:text-white transition duration-300 group">
+                        {% csrf_token %}
+                        <button type="submit" class="relative inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-slate-300 hover:text-white transition duration-300 group">
+                            <span class="absolute inset-0 w-full h-full rounded-xl transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-indigo-900/50 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                            <span class="absolute inset-0 w-full h-full rounded-xl bg-slate-800/80 border border-slate-700/50 group-hover:bg-indigo-900/40 transition duration-300"></span>
+                            <span class="relative z-10">Обновить до Premium</span>
+                        </button>
+                    </form>
+                </div>
+                {% endif %}
+                <div class="mt-6 space-y-3">
+                    {% for integration in integrations %}
+                    <div class="rounded-3xl border border-slate-800 bg-slate-950/70 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <div>
+                                <p class="text-sm font-semibold text-white">@{{ integration.provider }}</p>
+                                <p class="text-xs text-slate-500 mt-1">Ключ сохранен</p>
+                            </div>
+                            <span class="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-[11px] font-semibold text-emerald-300">Готово</span>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p class="text-sm text-slate-400">Добавьте ключ API, чтобы использовать нейросеть прямо из чата.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="glass-panel rounded-3xl p-6">
+                <h2 class="text-lg font-bold text-white mb-4">Советы по использованию @</h2>
+                <div class="space-y-3 text-sm text-slate-400">
+                    <p>Чтобы обратиться к модели, начните сообщение с <span class="font-semibold text-white">@gpt</span>, <span class="font-semibold text-white">@grok</span>, <span class="font-semibold text-white">@deepseek</span>, <span class="font-semibold text-white">@qwen</span> или <span class="font-semibold text-white">@claude</span>.</p>
+                    <p>Например: <span class="text-indigo-300">@gpt Придумай тему для обсуждения на вечер</span></p>
+                    <p>После отправки запрос будет обработан и бот ответит прямо в комнате.</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-2">
+        <section class="glass-panel rounded-3xl p-6">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-bold text-white">Мои комнаты</h2>
+                <span class="text-xs uppercase tracking-[0.24em] text-slate-400">{{ my_rooms.count }} / {{ profile.room_limit }}</span>
+            </div>
+            <div class="space-y-3">
+                {% for room in my_rooms %}
+                <a href="{% url 'room_detail' room.slug %}" class="block rounded-3xl border border-slate-800 bg-slate-950/80 p-4 transition hover:border-indigo-500/30 hover:bg-slate-900">
+                    <div class="flex items-start justify-between gap-3">
+                        <div>
+                            <h3 class="text-base font-semibold text-white">{{ room.name }}</h3>
+                            <p class="text-sm text-slate-400 mt-1">{{ room.get_category_display }} · {{ room.messages.count }} сообщений</p>
+                        </div>
+                        <span class="text-xs uppercase tracking-[0.24em] text-slate-400">{{ room.created_at|date:'d.m.Y' }}</span>
+                    </div>
+                </a>
+                {% empty %}
+                <p class="text-sm text-slate-400">Вы ещё не создали ни одной комнаты. Создайте первую на панели комнат.</p>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="glass-panel rounded-3xl p-6">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-bold text-white">Комнаты, в которых вы были</h2>
+                <span class="text-xs uppercase tracking-[0.24em] text-slate-400">{{ visited_rooms.count }}</span>
+            </div>
+            <div class="space-y-3">
+                {% for room in visited_rooms %}
+                <a href="{% url 'room_detail' room.slug %}" class="block rounded-3xl border border-slate-800 bg-slate-950/80 p-4 transition hover:border-indigo-500/30 hover:bg-slate-900">
+                    <div class="flex items-start justify-between gap-3">
+                        <div>
+                            <h3 class="text-base font-semibold text-white">{{ room.name }}</h3>
+                            <p class="text-sm text-slate-400 mt-1">{{ room.get_category_display }} · Создатель: {{ room.creator.username }}</p>
+                        </div>
+                        <span class="text-xs uppercase tracking-[0.24em] text-slate-400">{{ room.updated_at|date:'d.m.Y' }}</span>
+                    </div>
+                </a>
+                {% empty %}
+                <p class="text-sm text-slate-400">Вы ещё не посещали ни одной комнаты. Попробуйте присоединиться к интересной беседе!</p>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}
