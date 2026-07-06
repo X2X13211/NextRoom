@@ -17,7 +17,7 @@ from django.utils import timezone
 from django.utils.text import slugify
 from django.db.models import Q, Count
 
-from .models import Room, Message, UserProfile, AIIntegration, RoomInvitation, AI_PROVIDER_CHOICES
+from .models import Room, Message, UserProfile, AIIntegration, RoomAIIntegration, RoomInvitation, AI_PROVIDER_CHOICES
 
 AI_COMMAND_ALIASES = {provider: label for provider, label in AI_PROVIDER_CHOICES}
 
@@ -37,6 +37,21 @@ def get_ai_bot_user():
         'password': User.objects.make_random_password(32)
     })
     return bot_user
+
+
+def get_room_ai_integration_for_user(user, room, alias):
+    profile = get_user_profile(user)
+    integration = profile.integrations.filter(provider=alias).first()
+    if integration:
+        return integration
+
+    if room.creator != user:
+        room_enabled = room.ai_integrations.filter(provider=alias).first()
+        if room_enabled:
+            creator_profile = get_user_profile(room.creator)
+            return creator_profile.integrations.filter(provider=alias).first()
+
+    return None
 
 
 def yookassa_request(method, endpoint, payload=None):
@@ -152,9 +167,10 @@ def landing(request):
         return redirect('dashboard')
     
     # Calculate some stats for the landing page
-    total_rooms = Room.objects.count()
-    total_users = User.objects.count()
+    active_rooms = Room.objects.filter(messages__isnull=False).distinct().count()
+    online_users = User.objects.filter(last_login__gte=timezone.now() - datetime.timedelta(minutes=5), is_active=True).distinct().count()
     total_messages = Message.objects.count()
+    total_rooms = Room.objects.count()
     
     # Top 3 active rooms based on message count
     featured_rooms = Room.objects.annotate(
@@ -162,9 +178,10 @@ def landing(request):
     ).filter(is_private=False).order_by('-msg_count')[:3]
 
     context = {
-        'total_rooms': total_rooms,
-        'total_users': total_users,
+        'active_rooms': active_rooms,
+        'online_users': online_users,
         'total_messages': total_messages,
+        'total_rooms': total_rooms,
         'featured_rooms': featured_rooms,
     }
     return render(request, 'chat/landing.html', context)
@@ -184,12 +201,13 @@ def register_view(request):
             messages.error(request, 'Пожалуйста, заполните все обязательные поля.')
         elif User.objects.filter(username=username).exists():
             messages.error(request, 'Пользователь с таким именем уже существует.')
+        elif email and User.objects.filter(email__iexact=email).exists():
+            messages.error(request, 'Пользователь с такой почтой уже существует.')
         elif password != password_confirm:
             messages.error(request, 'Пароли не совпадают.')
         elif len(password) < 6:
             messages.error(request, 'Пароль должен быть не менее 6 символов.')
         else:
-            # Create user
             user = User.objects.create_user(username=username, email=email, password=password)
             login(request, user)
             messages.success(request, f'Добро пожаловать в NextRoom, {username}!')
@@ -430,6 +448,28 @@ def create_room_invite(request, slug):
     return redirect('room_detail', slug=room.slug)
 
 @login_required
+def manage_room_ai_integrations(request, slug):
+    if request.method != 'POST':
+        return HttpResponseBadRequest('Invalid request method')
+
+    room = get_object_or_404(Room, slug=slug)
+    if room.creator != request.user:
+        messages.error(request, 'Только создатель комнаты может управлять доступными моделями.')
+        return redirect('room_detail', slug=room.slug)
+
+    profile = get_user_profile(request.user)
+    available_providers = {integration.provider for integration in profile.integrations.all()}
+    selected_providers = [provider for provider in request.POST.getlist('providers') if provider in available_providers]
+
+    RoomAIIntegration.objects.filter(room=room).exclude(provider__in=selected_providers).delete()
+    for provider in selected_providers:
+        RoomAIIntegration.objects.get_or_create(room=room, provider=provider)
+
+    messages.success(request, 'Список доступных моделей для комнаты обновлен.')
+    return redirect('room_detail', slug=room.slug)
+
+
+@login_required
 def room_detail(request, slug):
     """Display the chat room. Verifies access code for private rooms."""
     room = get_object_or_404(Room, slug=slug)
@@ -466,6 +506,10 @@ def room_detail(request, slug):
     room_invites = room.invitations.order_by('-created_at')[:10]
     profile = get_user_profile(request.user)
     can_create_invites = (profile.invite_limit is None or room.invitations.count() < profile.invite_limit) and request.user == room.creator
+    enabled_room_providers = list(room.ai_integrations.values_list('provider', flat=True))
+    available_room_providers = []
+    if request.user == room.creator:
+        available_room_providers = [integration.provider for integration in profile.integrations.all()]
 
     context = {
         'room': room,
@@ -475,6 +519,8 @@ def room_detail(request, slug):
         'can_create_invites': can_create_invites,
         'invite_limit': profile.invite_limit,
         'ai_aliases': AI_COMMAND_ALIASES,
+        'enabled_room_providers': enabled_room_providers,
+        'available_room_providers': available_room_providers,
     }
     return render(request, 'chat/room_detail.html', context)
 
@@ -533,9 +579,9 @@ def send_message(request, slug):
 
     alias, prompt = parse_ai_command(content)
     if alias in AI_COMMAND_ALIASES:
-        integration = get_user_profile(request.user).integrations.filter(provider=alias).first()
+        integration = get_room_ai_integration_for_user(request.user, room, alias)
         if not integration:
-            return JsonResponse({'error': f'Для использования @{alias} добавьте ключ API в личном кабинете.'}, status=400)
+            return JsonResponse({'error': f'Для использования @{alias} добавьте ключ API в личном кабинете или включите модель для комнаты.'}, status=400)
 
         user_message = Message.objects.create(room=room, user=request.user, content=content)
         bot_user = get_ai_bot_user()
