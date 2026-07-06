@@ -2,6 +2,35 @@
 
 {% block title %}NextRoom — Пространство для твоего общения{% endblock %}
 
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.stat-value');
+
+        counters.forEach((counter) => {
+            const target = Number(counter.dataset.target || 0);
+            const duration = 1200;
+            const startTime = performance.now();
+
+            const step = (currentTime) => {
+                const progress = Math.min((currentTime - startTime) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const value = Math.floor(eased * target);
+                counter.textContent = value.toLocaleString('ru-RU');
+
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    counter.textContent = target.toLocaleString('ru-RU');
+                }
+            };
+
+            requestAnimationFrame(step);
+        });
+    });
+</script>
+{% endblock %}
+
 {% block content %}
 <div
     class="relative isolate overflow-hidden flex flex-col justify-center items-center py-20 px-6 sm:py-32 lg:px-8 flex-grow">
@@ -55,21 +84,15 @@
     <div class="mx-auto mt-20 max-w-5xl px-6 lg:px-8 w-full animate-fade-in" style="animation-delay: 0.2s;">
         <dl class="grid grid-cols-1 gap-x-8 gap-y-8 text-center sm:grid-cols-3">
             <div class="flex flex-col gap-y-2 p-6 rounded-2xl glass-panel">
-                <dd class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-                    {{ active_rooms|default:0 }}
-                </dd>
+                <dd class="stat-value text-3xl font-extrabold tracking-tight text-white sm:text-4xl" data-target="{{ active_rooms|default:0 }}">0</dd>
                 <dt class="text-sm font-medium leading-6 text-slate-400">Активных комнат</dt>
             </div>
             <div class="flex flex-col gap-y-2 p-6 rounded-2xl glass-panel">
-                <dd class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-                    {{ online_users|default:0 }}
-                </dd>
+                <dd class="stat-value text-3xl font-extrabold tracking-tight text-white sm:text-4xl" data-target="{{ online_users|default:0 }}">0</dd>
                 <dt class="text-sm font-medium leading-6 text-slate-400">Пользователей онлайн</dt>
             </div>
             <div class="flex flex-col gap-y-2 p-6 rounded-2xl glass-panel">
-                <dd class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-                    {{ total_messages|default:0 }}
-                </dd>
+                <dd class="stat-value text-3xl font-extrabold tracking-tight text-white sm:text-4xl" data-target="{{ total_messages|default:0 }}">0</dd>
                 <dt class="text-sm font-medium leading-6 text-slate-400">Отправлено сообщений</dt>
             </div>
         </dl>
