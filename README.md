@@ -4,6 +4,9 @@
 Основная страница с комнатами
 <img width="1304" height="554" alt="изображение" src="https://github.com/user-attachments/assets/cd7e9466-a7a5-44fe-a7b4-6eae507dc828" />
 
+Личный кабинет пользователя
+<img width="1349" height="855" alt="изображение" src="https://github.com/user-attachments/assets/ac2c80d9-f606-48c0-9f6c-3e667114b40c" />
+
 ## AI в каждой комнате
 
 Добавьте ИИ в любую комнату так же просто, как нового участника. Он станет полноценной частью беседы и сможет:
