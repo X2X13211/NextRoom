@@ -1,6 +1,9 @@
 Главная страница NextRoom
 <img width="1363" height="658" alt="изображение" src="https://github.com/user-attachments/assets/527af2de-7912-4e65-bc5a-eb029b58ee20" />
 
+Основная страница с комнатами
+<img width="1304" height="554" alt="изображение" src="https://github.com/user-attachments/assets/cd7e9466-a7a5-44fe-a7b4-6eae507dc828" />
+
 ## AI в каждой комнате
 
 Добавьте ИИ в любую комнату так же просто, как нового участника. Он станет полноценной частью беседы и сможет:
