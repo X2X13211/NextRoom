@@ -18,4 +18,7 @@ urlpatterns = [
     path('profile/add-integration/', views.add_ai_integration, name='add_ai_integration'),
     path('profile/subscribe/', views.create_yookassa_subscription, name='create_yookassa_subscription'),
     path('profile/confirm-subscription/', views.confirm_subscription, name='subscription_confirm'),
+    path('terms/', views.terms_view, name='terms'),
+    path('privacy/', views.privacy_view, name='privacy'),
+    path('contacts/', views.contacts_view, name='contacts'),
 ]

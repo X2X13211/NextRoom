@@ -240,6 +240,19 @@ def logout_view(request):
     messages.info(request, 'Вы вышли из системы. До встречи!')
     return redirect('landing')
 
+
+def terms_view(request):
+    return render(request, 'chat/terms.html')
+
+
+def privacy_view(request):
+    return render(request, 'chat/privacy.html')
+
+
+def contacts_view(request):
+    return render(request, 'chat/contacts.html')
+
+
 @login_required
 def dashboard(request):
     """Dashboard view listing all rooms with search, filters, and statistics."""

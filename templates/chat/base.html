@@ -140,19 +140,16 @@
                 <span class="relative z-10">Выйти</span>
             </a>
             {% else %}
-            <a href="{% url 'login' %}" 
-                class="relative inline-block px-4 py-2 text-sm font-semibold text-slate-300 hover:text-white transition duration-300 group">
-                <span class="absolute inset-0 w-full h-full rounded-xl transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-indigo-900/50 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
-                <span class="absolute inset-0 w-full h-full rounded-xl bg-slate-800/80 border border-slate-700/50 group-hover:bg-indigo-900/40 transition duration-300"></span>
-                <span class="relative z-10">Войти</span>
-            </a>
-            
-            <a href="{% url 'register' %}" 
-                class="relative inline-block px-4 py-2 text-sm font-semibold text-slate-300 hover:text-white transition duration-300 group">
-                <span class="absolute inset-0 w-full h-full rounded-xl transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-indigo-900/50 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
-                <span class="absolute inset-0 w-full h-full rounded-xl bg-slate-800/80 border border-slate-700/50 group-hover:bg-indigo-900/40 transition duration-300"></span>
-                <span class="relative z-10">Создать аккаунт</span>
-            </a>
+            <div class="flex items-center gap-2 shrink-0">
+                <a href="{% url 'login' %}"
+                    class="inline-flex items-center whitespace-nowrap rounded-xl border border-slate-700/50 bg-slate-800/80 px-4 py-2 text-sm font-semibold text-slate-300 hover:border-indigo-500/40 hover:bg-indigo-900/40 hover:text-white transition duration-200">
+                    Войти
+                </a>
+                <a href="{% url 'register' %}"
+                    class="inline-flex items-center whitespace-nowrap rounded-xl border border-indigo-500/30 bg-indigo-600/20 px-4 py-2 text-sm font-semibold text-indigo-200 hover:border-indigo-400/50 hover:bg-indigo-600/40 hover:text-white transition duration-200">
+                    Создать аккаунт
+                </a>
+            </div>
             {% endif %}
         </nav>
     </div>
@@ -201,9 +198,9 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p>&copy; 2026 NextRoom. Все права защищены.</p>
             <div class="flex gap-4">
-                <a href="#" class="hover:text-slate-300 transition">Правила</a>
-                <a href="#" class="hover:text-slate-300 transition">Конфиденциальность</a>
-                <a href="#" class="hover:text-slate-300 transition">Контакты</a>
+                <a href="{% url 'terms' %}" class="hover:text-slate-300 transition">Правила</a>
+                <a href="{% url 'privacy' %}" class="hover:text-slate-300 transition">Конфиденциальность</a>
+                <a href="{% url 'contacts' %}" class="hover:text-slate-300 transition">Контакты</a>
             </div>
         </div>
     </footer>
