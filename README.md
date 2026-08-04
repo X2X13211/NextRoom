@@ -62,6 +62,21 @@
 ![Snake](https://raw.githubusercontent.com/USERNAME/USERNAME/output/github-contribution-grid-snake-dark.svg)
 [![Spotify](https://spotify-github-profile.kittinanx.com/api/view?uid=USERNAME&cover_image=true&theme=default)](https://spotify-github-profile.kittinanx.com/api/view?uid=USERNAME&redirect=true)
 
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=120&section=header"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=120&section=footer"/>
+
+
+
+
+![snake gif](https://github.com/Platane/snk/raw/output/github-contribution-grid-snake.svg)
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=django,python,js,tailwind,postgresql,docker,git" />
+</p>
+
+
+![](https://komarev.com/ghpvc/?username=USERNAME&color=blueviolet)
+
 
 ## AI в каждой комнате
 
