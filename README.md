@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  ![Typing](https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&duration=3000&color=00D4FF&lines=Web-Developer;OpenSource-I-Love-You)
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=A855F7&center=true&vCenter=true&width=800&lines=NextRoom;Chat+with+People+and+AI;Create+Rooms+and+Communities" />
 </p>
 
 <p align="center">
