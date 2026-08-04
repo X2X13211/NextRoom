@@ -5,27 +5,55 @@
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=X2X13211&label=Profile%20views&color=0e75b6&style=flat" alt="Profile views" />
+  <img src="https://komarev.com/ghpvc/?username=X2X13211&label=Просмотры&color=8B5CF6&style=for-the-badge" />
+  <img src="https://img.shields.io/github/stars/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" />
+  <img src="https://img.shields.io/github/forks/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" />
+  <img src="https://img.shields.io/github/issues/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" />
+  <img src="https://img.shields.io/github/license/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" />
+  <img src="https://img.shields.io/github/last-commit/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" />
+  <img src="https://img.shields.io/github/repo-size/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" />
+  <img src="https://img.shields.io/badge/Python-3.12-8B5CF6?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Django-5.x-8B5CF6?style=for-the-badge&logo=django&logoColor=white" />
+  <img src="https://img.shields.io/badge/PostgreSQL-16-8B5CF6?style=for-the-badge&logo=postgresql&logoColor=white" />
+  <img src="https://img.shields.io/badge/TailwindCSS-3.x-8B5CF6?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  <img src="https://img.shields.io/badge/Docker-Enabled-8B5CF6?style=for-the-badge&logo=docker&logoColor=white" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-8B5CF6?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/Django-8B5CF6?style=for-the-badge&logo=django&logoColor=white" alt="Django" />
+  <img src="https://img.shields.io/badge/PostgreSQL-8B5CF6?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+  <img src="https://img.shields.io/badge/Docker-8B5CF6?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+  <img src="https://img.shields.io/badge/Linux-8B5CF6?style=for-the-badge&logo=linux&logoColor=white" alt="Linux" />
+  <img src="https://img.shields.io/badge/Git-8B5CF6?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
+  <img src="https://img.shields.io/badge/JavaScript-8B5CF6?style=for-the-badge&logo=javascript&logoColor=white" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/TailwindCSS-8B5CF6?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="TailwindCSS" />
+</p>
+
+<p align="center">
+  <img src="https://streak-stats.demolab.com?user=X2X13211&theme=midnight-purple" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/ИИ_в_комнатах-8B5CF6?style=for-the-badge&logo=openai&logoColor=white" alt="ИИ в комнатах" />
+  <img src="https://img.shields.io/badge/Генерация_фото-8B5CF6?style=for-the-badge&logo=image&logoColor=white" alt="Генерация фото" />
+  <img src="https://img.shields.io/badge/Простая_регистрация-8B5CF6?style=for-the-badge&logo=auth0&logoColor=white" alt="Простая регистрация" />
 </p>
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker" />
-  <img src="https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=000000" alt="Linux" />
-  <img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white" alt="Git" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=000000" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white" alt="TailwindCSS" />
+  <img src="https://img.shields.io/badge/Общение-8B5CF6?style=for-the-badge&logo=wechat&logoColor=white" alt="Общение" />
+  <img src="https://img.shields.io/badge/Комнаты-8B5CF6?style=for-the-badge&logo=homeassistant&logoColor=white" alt="Комнаты" />
+  <img src="https://img.shields.io/badge/Быстрый_доступ-8B5CF6?style=for-the-badge&logo=lightning&logoColor=white" alt="Быстрый доступ" />
 </p>
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=X2X13211&theme=onedark" alt="GitHub streak stats" />
+  <a href="https://nextroom.vercel.app">
+    <img 
+      src="https://img.shields.io/badge/ПОПРОБОВАТЬ_NEXTROOM-8B5CF6?style=for-the-badge&logo=vercel&logoColor=white&labelColor=7C3AED"
+      alt="Попробовать NextRoom"
+      height="50"
+    />
+  </a>
 </p>
-
-
-<a href="https://github.com/X2X13211">
-  <img src="https://github-profile-trophy.vercel.app/?username=X2X13211&theme=tokyonight&column=4&margin-w=15&margin-h=15"/>
-</a>
-
 
 Главная страница NextRoom
 <img width="1363" height="658" alt="изображение" src="https://github.com/user-attachments/assets/527af2de-7912-4e65-bc5a-eb029b58ee20" />
@@ -71,9 +99,7 @@ NextRoom подходит для самых разных сценариев:
 
 Создайте комнату, пригласите участников и подключите любимую ИИ-модель — всё общение происходит в одном месте.
 
-### Попробовать
 
-**https://nextroom.vercel.app**
 
 ![snake gif](https://github.com/Platane/snk/raw/output/github-contribution-grid-snake.svg)
 
