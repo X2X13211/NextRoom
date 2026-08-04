@@ -22,7 +22,9 @@
 </p>
 
 
-![3D Profile](https://raw.githubusercontent.com/X2X13211/X2X13211/main/profile-3d-contrib/profile-night-rainbow.svg)
+<a href="https://github.com/X2X13211">
+  <img src="https://github-profile-trophy.vercel.app/?username=X2X13211&theme=tokyonight&column=4&margin-w=15&margin-h=15"/>
+</a>
 
 
 Главная страница NextRoom
