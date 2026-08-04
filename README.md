@@ -1,8 +1,10 @@
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=120&section=header"/>
+
+![Typing](https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&duration=3000&color=00D4FF&lines=Web-Developer;OpenSource-I-Love-You)
+
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=X2X13211&label=Profile%20views&color=0e75b6&style=flat" alt="Profile views" />
 </p>
-![Typing](https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&duration=3000&color=00D4FF&lines=Web-Developer;Opensourse-I-Love-You)
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python" />
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL" />
