@@ -30,8 +30,6 @@
 **GitHub Stats**
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=X2X13211&show_icons=true&theme=onedark" alt="X2X's GitHub stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=X2X13211&layout=compact&theme=onedark" alt="Top languages" />
   <img src="https://streak-stats.demolab.com?user=X2X13211&theme=onedark" alt="GitHub streak stats" />
 </p>
 
