@@ -1,3 +1,7 @@
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=120&section=header"/>
+
+![snake gif](https://github.com/Platane/snk/raw/output/github-contribution-grid-snake.svg)
+
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=X2X13211&label=Profile%20views&color=0e75b6&style=flat" alt="Profile views" />
 </p>
@@ -62,13 +66,8 @@
 ![Snake](https://raw.githubusercontent.com/USERNAME/USERNAME/output/github-contribution-grid-snake-dark.svg)
 [![Spotify](https://spotify-github-profile.kittinanx.com/api/view?uid=USERNAME&cover_image=true&theme=default)](https://spotify-github-profile.kittinanx.com/api/view?uid=USERNAME&redirect=true)
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=120&section=header"/>
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=120&section=footer"/>
 
 
-
-
-![snake gif](https://github.com/Platane/snk/raw/output/github-contribution-grid-snake.svg)
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=django,python,js,tailwind,postgresql,docker,git" />
@@ -109,3 +108,5 @@ NextRoom подходит для самых разных сценариев:
 ### Попробовать
 
 **https://nextroom.vercel.app**
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=120&section=footer"/>
