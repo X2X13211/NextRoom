@@ -1,7 +1,4 @@
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=120&section=header"/>
-
-![snake gif](https://github.com/Platane/snk/raw/output/github-contribution-grid-snake.svg)
-
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=X2X13211&label=Profile%20views&color=0e75b6&style=flat" alt="Profile views" />
 </p>
@@ -15,8 +12,6 @@
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=000000" alt="JavaScript" />
   <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white" alt="TailwindCSS" />
 </p>
-
-**GitHub Stats**
 
 <p align="center">
   <img src="https://streak-stats.demolab.com?user=X2X13211&theme=onedark" alt="GitHub streak stats" />
@@ -90,4 +85,7 @@ NextRoom подходит для самых разных сценариев:
 ### Попробовать
 
 **https://nextroom.vercel.app**
+
+![snake gif](https://github.com/Platane/snk/raw/output/github-contribution-grid-snake.svg)
+
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=120&section=footer"/>
