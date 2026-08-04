@@ -1,4 +1,9 @@
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=120&section=header"/>
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=A855F7&center=true&vCenter=true&width=800&lines=NextRoom;Chat+with+People+and+AI;Create+Rooms+and+Communities" />
+</p>
+
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=X2X13211&label=Profile%20views&color=0e75b6&style=flat" alt="Profile views" />
 </p>
@@ -10,10 +15,6 @@
   <img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white" alt="Git" />
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=000000" alt="JavaScript" />
   <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white" alt="TailwindCSS" />
-</p>
-
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=A855F7&center=true&vCenter=true&width=800&lines=NextRoom;Chat+with+People+and+AI;Create+Rooms+and+Communities" />
 </p>
 
 <p align="center">
