@@ -1,3 +1,51 @@
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=X2X13211&label=Profile%20views&color=0e75b6&style=flat" alt="Profile views" />
+</p>
+
+<h1 align="center">Hi, I'm X2X 👋</h1>
+<p align="center">WEB Developer &middot; 📍 Брянск</p>
+
+---
+
+**About me**
+
+- 🌐 Portfolio: [nextroom.vercel.app](https://nextroom.vercel.app)
+
+---
+
+**Tech Stack**
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker" />
+  <img src="https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=000000" alt="Linux" />
+  <img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white" alt="Git" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=000000" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white" alt="TailwindCSS" />
+</p>
+
+---
+
+**GitHub Stats**
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=X2X13211&show_icons=true&theme=onedark" alt="X2X's GitHub stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=X2X13211&layout=compact&theme=onedark" alt="Top languages" />
+  <img src="https://streak-stats.demolab.com?user=X2X13211&theme=onedark" alt="GitHub streak stats" />
+</p>
+
+---
+
+**Connect with me**
+
+<p align="center">
+  [![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=flat&logo=google-chrome&logoColor=white)](https://nextroom.vercel.app)
+</p>
+
+
+
+
 Главная страница NextRoom
 <img width="1363" height="658" alt="изображение" src="https://github.com/user-attachments/assets/527af2de-7912-4e65-bc5a-eb029b58ee20" />
 
