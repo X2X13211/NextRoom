@@ -1,7 +1,7 @@
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=120&section=header"/>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=A855F7&center=true&vCenter=true&width=800&lines=NextRoom;Chat+with+People+and+AI;Create+Rooms+and+Communities" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=A855F7&center=true&vCenter=true&width=800&lines=NextRoom;Chat+with+People+and+AI;Create+Rooms+and+Communities" 
 </p>
 
 <p align="center">
@@ -12,11 +12,17 @@
   <img src="https://img.shields.io/github/license/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" />
   <img src="https://img.shields.io/github/last-commit/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" />
   <img src="https://img.shields.io/github/repo-size/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" />
+
   <img src="https://img.shields.io/badge/Python-3.12-8B5CF6?style=for-the-badge&logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/Django-5.x-8B5CF6?style=for-the-badge&logo=django&logoColor=white" />
   <img src="https://img.shields.io/badge/PostgreSQL-16-8B5CF6?style=for-the-badge&logo=postgresql&logoColor=white" />
   <img src="https://img.shields.io/badge/TailwindCSS-3.x-8B5CF6?style=for-the-badge&logo=tailwindcss&logoColor=white" />
   <img src="https://img.shields.io/badge/Docker-Enabled-8B5CF6?style=for-the-badge&logo=docker&logoColor=white" />
+
+  <img src="https://img.shields.io/badge/Vercel-Deployed-8B5CF6?style=for-the-badge&logo=vercel&logoColor=white" />
+  <img src="https://img.shields.io/badge/VS_Code-Editor-8B5CF6?style=for-the-badge&logo=visualstudiocode&logoColor=white" />
+  <img src="https://img.shields.io/badge/GitHub-Repository-8B5CF6?style=for-the-badge&logo=github&logoColor=white" />
+  <img src="https://img.shields.io/badge/Cursor-AI_Editor-8B5CF6?style=for-the-badge&logo=cursor&logoColor=white" />
 </p>
 
 <p align="center">
@@ -55,7 +61,67 @@
   </a>
 </p>
 
-Главная страница NextRoom
+<h2 align="center">
+  <font color="#A855F7">AI в каждой комнате</font>
+</h2>
+
+<p align="center">
+  Добавьте искусственный интеллект в любую комнату<br>
+  так же просто, как нового участника.
+</p>
+
+<br>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Ответы_на_вопросы-8B5CF6?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Генерация_идей_и_текстов-8B5CF6?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Перевод_и_анализ-8B5CF6?style=for-the-badge" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Участник_беседы-A855F7?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Умный_помощник-A855F7?style=for-the-badge" />
+</p>
+
+<br>
+
+<h2 align="center">
+  <font color="#A855F7">Возможности NextRoom</font>
+</h2>
+
+<p align="center">
+  Одна платформа для общения, совместной работы<br>
+  и взаимодействия с искусственным интеллектом.
+</p>
+
+<br>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Командная_работа-8B5CF6?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Мозговые_штурмы-8B5CF6?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Сообщества-8B5CF6?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Учёба-8B5CF6?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Друзья-8B5CF6?style=for-the-badge" />
+</p>
+
+<br>
+
+<div align="center">
+
+
+
+
+
+
+
+
+
+<p align="center">
+  <img 
+    src="https://img.shields.io/badge/Главная_страница_NextRoom-A855F7?style=for-the-badge&logoColor=white"
+    alt="Главная страница NextRoom"
+  />
+</p>
 <img width="1363" height="658" alt="изображение" src="https://github.com/user-attachments/assets/527af2de-7912-4e65-bc5a-eb029b58ee20" />
 
 Основная страница с комнатами
@@ -71,31 +137,6 @@
 
 
 
-## AI в каждой комнате
-
-Добавьте ИИ в любую комнату так же просто, как нового участника. Он станет полноценной частью беседы и сможет:
-
-* Отвечать на вопросы
-* Генерировать идеи и тексты
-* Помогать с программированием и учёбой
-* Участвовать в обсуждениях
-* Переводить и анализировать информацию
-* Помогать с повседневными задачами
-* Шутить и делать общение интереснее
-
-Общайтесь с людьми и искусственным интеллектом одновременно — в одном чате.
-
----
-
-## Возможности
-
-NextRoom подходит для самых разных сценариев:
-
-* Командная работа и мозговые штурмы
-* Сообщества по интересам
-* Учёба и совместная подготовка
-* Общение с друзьями
-* Быстрый доступ к ИИ без переключения между сервисами
 
 Создайте комнату, пригласите участников и подключите любимую ИИ-модель — всё общение происходит в одном месте.
 
