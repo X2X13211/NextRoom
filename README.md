@@ -33,13 +33,8 @@
   <img src="https://streak-stats.demolab.com?user=X2X13211&theme=onedark" alt="GitHub streak stats" />
 </p>
 
----
 
-**Connect with me**
 
-<p align="center">
-  [![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=flat&logo=google-chrome&logoColor=white)](https://nextroom.vercel.app)
-</p>
 
 
 
