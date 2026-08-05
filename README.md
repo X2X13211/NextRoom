@@ -112,23 +112,98 @@
 
 
 
+<h2 align="center">
+  <img src="https://img.shields.io/badge/Интерфейс_NextRoom-A855F7?style=for-the-badge" />
+</h2>
 
+<table align="center">
+<tr>
 
+<td align="center" width="33%" valign="top">
 
+<img src="https://img.shields.io/badge/Главная-8B5CF6?style=for-the-badge" />
 
-<p align="center">
-  <img 
-    src="https://img.shields.io/badge/Главная_страница_NextRoom-A855F7?style=for-the-badge&logoColor=white"
+<br><br>
+
+<a href="https://github.com/user-attachments/assets/bec2ac00-fc64-4b0a-bec0-fbef639bb914">
+  <img
+    width="360"
+    src="https://github.com/user-attachments/assets/bec2ac00-fc64-4b0a-bec0-fbef639bb914"
     alt="Главная страница NextRoom"
   />
+</a>
+
+<br><br>
+
+<sub>
+Быстрый старт, навигация по платформе и доступ ко всем возможностям NextRoom.
+</sub>
+
+<br><br>
+
+<img src="https://img.shields.io/badge/↓-A855F7?style=for-the-badge" />
+
+</td>
+
+<td align="center" width="33%" valign="top">
+
+<img src="https://img.shields.io/badge/Комнаты-8B5CF6?style=for-the-badge" />
+
+<br><br>
+
+<a href="https://github.com/user-attachments/assets/cd7e9466-a7a5-44fe-a7b4-6eae507dc828">
+  <img
+    width="360"
+    src="https://github.com/user-attachments/assets/cd7e9466-a7a5-44fe-a7b4-6eae507dc828"
+    alt="Комнаты NextRoom"
+  />
+</a>
+
+<br><br>
+
+<sub>
+Создавайте комнаты для общения, совместной работы и взаимодействия с AI.
+</sub>
+
+<br><br>
+
+<img src="https://img.shields.io/badge/↓-A855F7?style=for-the-badge" />
+
+</td>
+
+<td align="center" width="33%" valign="top">
+
+<img src="https://img.shields.io/badge/Профиль-8B5CF6?style=for-the-badge" />
+
+<br><br>
+
+<a href="https://github.com/user-attachments/assets/ac2c80d9-f606-48c0-9f6c-3e667114b40c">
+  <img
+    width="360"
+    src="https://github.com/user-attachments/assets/ac2c80d9-f606-48c0-9f6c-3e667114b40c"
+    alt="Профиль пользователя"
+  />
+</a>
+
+<br><br>
+
+<sub>
+Управляйте профилем, настройками и персональным пространством.
+</sub>
+
+<br><br>
+
+<img src="https://img.shields.io/badge/↓-A855F7?style=for-the-badge" />
+
+</td>
+
+</tr>
+</table>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Нажмите_на_изображение_для_увеличения-A855F7?style=flat-square" />
 </p>
-<img width="1363" height="658" alt="изображение" src="https://github.com/user-attachments/assets/527af2de-7912-4e65-bc5a-eb029b58ee20" />
 
-Основная страница с комнатами
-<img width="1304" height="554" alt="изображение" src="https://github.com/user-attachments/assets/cd7e9466-a7a5-44fe-a7b4-6eae507dc828" />
-
-Личный кабинет пользователя
-<img width="1349" height="855" alt="изображение" src="https://github.com/user-attachments/assets/ac2c80d9-f606-48c0-9f6c-3e667114b40c" />
 
 
 
