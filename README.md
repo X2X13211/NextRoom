@@ -1,8 +1,11 @@
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=120&section=header"/>
-
+<p align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&height=250&color=8B5CF6&customColorList=12,14,18,20,24&text=NextRoom&fontColor=ffffff&fontSize=70&fontAlignY=40&descAlignY=65&descSize=24&animation=twinkling&section=header" /> </p>
+<p align="center">
+  
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=A855F7&center=true&vCenter=true&width=800&lines=NextRoom;Chat+with+People+and+AI;Create+Rooms+and+Communities" 
 </p>
+
+
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=X2X13211&label=Просмотры&color=8B5CF6&style=for-the-badge" />
@@ -240,11 +243,6 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Нажмите_на_изображение_для_увеличения-A855F7?style=flat-square" />
 </p>
-
-
-
-
-
 
 
 
