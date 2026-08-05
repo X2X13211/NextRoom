@@ -1,6 +1,7 @@
-<p align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&height=250&color=8B5CF6&customColorList=12,14,18,20,24&text=NextRoom&fontColor=ffffff&fontSize=70&fontAlignY=40&descAlignY=65&descSize=24&animation=twinkling&section=header" /> </p>
-<p align="center">
-  
+<p align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&height=250&color=8B5CF6&customColorList=12,14,18,20,24&text=NextRoom&fontColor=ffffff&fontSize=70&fontAlignY=40&descAlignY=65&descSize=24&animation=twinkling&section=header" /> 
+</p>
+
+
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=A855F7&center=true&vCenter=true&width=800&lines=NextRoom;Chat+with+People+and+AI;Create+Rooms+and+Communities" 
 </p>
@@ -71,6 +72,20 @@
 <p align="center">
   Добавьте искусственный интеллект в любую комнату<br>
   так же просто, как нового участника.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/AI_Assistant-8B5CF6?style=for-the-badge" />
+</p>
+
+<p align="center">
+  <a href="https://nextroom.vercel.app">
+    <img
+      src="https://github.com/user-attachments/assets/ee713192-77a6-4e02-91e3-972d6ac91490"
+      width="180"
+      alt="NextRoom AI"
+    />
+  </a>
 </p>
 
 <br>
@@ -253,5 +268,6 @@
 
 
 ![snake gif](https://github.com/Platane/snk/raw/output/github-contribution-grid-snake.svg)
+
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=120&section=footer"/>
