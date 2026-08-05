@@ -123,8 +123,6 @@
 
 <img src="https://img.shields.io/badge/Главная-8B5CF6?style=for-the-badge" />
 
-<br><br>
-
 <a href="https://github.com/user-attachments/assets/bec2ac00-fc64-4b0a-bec0-fbef639bb914">
   <img
     width="360"
@@ -133,23 +131,31 @@
   />
 </a>
 
-<br><br>
+<img src="https://img.shields.io/badge/↓-A855F7?style=for-the-badge" />
 
-<sub>
-Быстрый старт, навигация по платформе и доступ ко всем возможностям NextRoom.
-</sub>
 
-<br><br>
+<a href="https://github.com/user-attachments/assets/3b22ab9f-ed2b-47bf-943b-2dfed0fd22e7">
+  <img
+    width="360"
+    src="https://github.com/user-attachments/assets/3b22ab9f-ed2b-47bf-943b-2dfed0fd22e7"
+  />
+</a>
 
 <img src="https://img.shields.io/badge/↓-A855F7?style=for-the-badge" />
+
+
+<a href="https://github.com/user-attachments/assets/04e590b6-fedc-42d5-8762-dcfae5da4d11">
+  <img
+    width="360"
+    src="https://github.com/user-attachments/assets/04e590b6-fedc-42d5-8762-dcfae5da4d11"
+  />
+</a>
 
 </td>
 
 <td align="center" width="33%" valign="top">
 
 <img src="https://img.shields.io/badge/Комнаты-8B5CF6?style=for-the-badge" />
-
-<br><br>
 
 <a href="https://github.com/user-attachments/assets/cd7e9466-a7a5-44fe-a7b4-6eae507dc828">
   <img
@@ -159,43 +165,74 @@
   />
 </a>
 
-<br><br>
+<img src="https://img.shields.io/badge/↓-A855F7?style=for-the-badge" />
 
-<sub>
-Создавайте комнаты для общения, совместной работы и взаимодействия с AI.
-</sub>
-
-<br><br>
+<a href="https://github.com/user-attachments/assets/cc91efc6-477c-4cf3-9a77-5d97813781be">
+  <img
+    width="360"
+    src="https://github.com/user-attachments/assets/cc91efc6-477c-4cf3-9a77-5d97813781be"
+  />
+</a>
 
 <img src="https://img.shields.io/badge/↓-A855F7?style=for-the-badge" />
 
+
+<a href="https://github.com/user-attachments/assets/54ca41e1-58c4-4e0b-8e35-16dbb0a7398c">
+  <img
+    width="360"
+    src="https://github.com/user-attachments/assets/54ca41e1-58c4-4e0b-8e35-16dbb0a7398c"
+  />
+</a>
+
+<img src="https://img.shields.io/badge/↓-A855F7?style=for-the-badge" />
+
+
+<a href="https://github.com/user-attachments/assets/29e9fb2c-3b88-4ce2-998a-1c04e38fd029">
+  <img
+    width="360"
+    src="https://github.com/user-attachments/assets/29e9fb2c-3b88-4ce2-998a-1c04e38fd029"
+  />
+</a>
+
 </td>
+
+
 
 <td align="center" width="33%" valign="top">
 
 <img src="https://img.shields.io/badge/Профиль-8B5CF6?style=for-the-badge" />
 
-<br><br>
-
-<a href="https://github.com/user-attachments/assets/ac2c80d9-f606-48c0-9f6c-3e667114b40c">
+<a href="https://github.com/user-attachments/assets/0baad315-b5de-48ef-9812-e37623f02985">
   <img
     width="360"
-    src="https://github.com/user-attachments/assets/ac2c80d9-f606-48c0-9f6c-3e667114b40c"
+    src="https://github.com/user-attachments/assets/0baad315-b5de-48ef-9812-e37623f02985"
     alt="Профиль пользователя"
   />
 </a>
 
-<br><br>
-
-<sub>
-Управляйте профилем, настройками и персональным пространством.
-</sub>
-
-<br><br>
 
 <img src="https://img.shields.io/badge/↓-A855F7?style=for-the-badge" />
 
+<a href="https://github.com/user-attachments/assets/a7a250ea-9d45-4038-a82c-84d168bcde05">
+  <img
+    width="360"
+    src="https://github.com/user-attachments/assets/a7a250ea-9d45-4038-a82c-84d168bcde05"
+  />
+</a>
+
+<img src="https://img.shields.io/badge/↓-A855F7?style=for-the-badge" />
+
+<a href="https://github.com/user-attachments/assets/6b5e9e1b-06a1-46ea-abbe-0b3cabb692e4">
+  <img
+    width="360"
+    src="https://github.com/user-attachments/assets/6b5e9e1b-06a1-46ea-abbe-0b3cabb692e4"
+  />
+</a>
+
 </td>
+
+
+
 
 </tr>
 </table>
