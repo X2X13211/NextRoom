@@ -2,10 +2,10 @@
 </p>
 
 
+
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=A855F7&center=true&vCenter=true&width=800&lines=NextRoom;Chat+with+People+and+AI;Create+Rooms+and+Communities" 
 </p>
-
 
 
 <p align="center">
@@ -110,6 +110,14 @@
 <p align="center">
   Одна платформа для общения, совместной работы<br>
   и взаимодействия с искусственным интеллектом.
+</p>
+
+<p align="center">
+  <img
+    src="https://github.com/user-attachments/assets/edb16302-eacb-4d45-aada-952bbb208a2e"
+    width="240"
+    alt="NextRoom AI"
+  />
 </p>
 
 <br>
