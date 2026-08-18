@@ -150,30 +150,178 @@ erDiagram
 
 ## <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/GraphQL-Dark.svg" width="24" height="24" valign="middle" /> Функциональные возможности
 
-### 1. Пространства для общения и управление комнатами
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=2500&pause=1000&color=A855F7&background=0D111700&center=true&vCenter=true&width=800&lines=1.+Spaces+%26+Room+Management;2.+Multi-Provider+AI+Orchestration;3.+AI+Image+Generation+Studio;4.+Interactive+Mini-Games;5.+Gamification+%26+Reward+System" alt="Функциональные возможности NextRoom" />
+</p>
+
+---
+
+### <img src="https://img.shields.io/badge/1._ПРОСТРАНСТВА_И_КОМНАТЫ-8B5CF6?style=for-the-badge&logo=discourse&logoColor=white" alt="1. Пространства и комнаты" />
+
+**Пространства для общения и управление комнатами**
+
 - **Тематическая категоризация**: 21 предустановленная категория (Технологии, ИИ, Программирование, Учеба, Наука, Книги, Аниме, Спорт, Новости, Юмор, Творчество, Дизайн, Бизнес, Стартапы, Путешествия, Языки, Игры, Фильмы, Музыка, Социальное).
-- **Публичные и защищенные комнаты**: Свободный вход или закрытый доступ по секретному коду.
+- **Публичные и защищенные комнаты**: Свободный вход или закрытый доступ по секретному PIN-коду.
 - **Инвайты**: Генерация криптографически стойких токенов доступа (`secrets.token_urlsafe`).
-- **Закрепление комнат**: Механизм закрепления приоритетных комнат вверху списка дашборда.
-- **Аналитика**: Отслеживание счетчиков сообщений, активных пользователей и AI-трафика.
+- **Закрепление комнат**: Механизм пиннинга приоритетных комнат вверху дашборда.
+- **Аналитика**: Отслеживание счетчиков сообщений, активных участников и AI-трафика.
 
-### 2. Мультипровайдерная интеграция искусственного интеллекта
-- **Контекстный вызов**: Обращение к моделям через команды в чате (`@gpt`, `@claude`, `@deepseek`, `@routerai`, `@groq` или кастомный никнейм модели).
-- **Режим Auto-Reply**: Автоматический ответ модели на каждое сообщение в пространстве.
+#### Жизненный цикл комнат и управление доступом
+
+```mermaid
+graph LR
+    classDef public fill:#1E1B4B,stroke:#8B5CF6,stroke-width:2px,color:#fff;
+    classDef private fill:#311B92,stroke:#7C3AED,stroke-width:2px,color:#fff;
+    classDef invite fill:#1A237E,stroke:#3B82F6,stroke-width:2px,color:#fff;
+    classDef active fill:#064E3B,stroke:#10B981,stroke-width:2px,color:#fff;
+    classDef pin fill:#78350F,stroke:#F59E0B,stroke-width:2px,color:#fff;
+
+    Start(["Создание комнаты"]) --> AccessType{"Тип доступа?"}
+    
+    AccessType -- "Публичная" --> PublicRoom["Открытый каталог<br/>(21 категория)"]:::public
+    AccessType -- "Приватная" --> PrivateRoom["Защита кодом<br/>(PIN / Пароль)"]:::private
+    AccessType -- "По приглашению" --> InviteRoom["Инвайт-токен<br/>(secrets.token_urlsafe)"]:::invite
+
+    PublicRoom --> RoomSession["Активная сессия чата"]:::active
+    PrivateRoom --> ValidateCode{"Валидация кода"}
+    ValidateCode -- "Успех" --> RoomSession
+    ValidateCode -- "Ошибка" --> Denied["Доступ запрещен"]
+    InviteRoom --> ValidateToken{"Проверка токена"}
+    ValidateToken -- "Действителен" --> RoomSession
+    ValidateToken -- "Невалиден" --> Denied
+
+    RoomSession --> Interaction["Отправка сообщений, AI и Медиа"]
+    Interaction --> PinToggle{"Закрепить в дашборде?"}
+    PinToggle -- "Да" --> PinnedState["Pinned Room<br/>(Приоритет вверху)"]:::pin
+    PinToggle -- "Нет" --> StandardState["Стандартный список"]
+```
+
+---
+
+### <img src="https://img.shields.io/badge/2._AI_ORCHESTRATION-3B82F6?style=for-the-badge&logo=openai&logoColor=white" alt="2. AI Orchestration" />
+
+**Мультипровайдерная интеграция искусственного интеллекта**
+
+- **Контекстный вызов**: Обращение к моделям через вызовы в чате (`@gpt`, `@claude`, `@deepseek`, `@routerai`, `@groq` или кастомный никнейм).
+- **Режим Auto-Reply**: Автоматический отклик модели на каждое сообщение в пространстве.
 - **Кастомные промпты**: Персональные системные инструкции для каждой модели с определением тона, роли и правил форматирования.
-- **Управление API-ключами**: Генерация, хеширование, валидация и отключение персональных ключей RouterAI.
-- **Мониторинг расходов**: Подсчет использованных токенов, задержки ответа и построение аналитических графиков.
+- **Управление API-ключами**: Генерация, хеширование, шифрование, валидация и отключение персональных ключей RouterAI.
+- **Мониторинг расходов**: Подсчет токенов, измерение latency ответа и построение аналитики.
 
-### 3. Студия генерации изображений и медиа
+#### Пайплайн AI Orchestration & Token Streaming
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User as Пользователь
+    participant UI as Client UI
+    participant Middleware as Middleware / Router
+    participant Orchestration as AI Orchestrator
+    participant KeyStore as DB / Key Manager
+    participant Provider as AI Provider (RouterAI / Groq / Cerebras)
+
+    User->>UI: Ввод сообщения (например, "@gpt объясни кванты")
+    UI->>Middleware: POST /room/<slug>/send/ (Payload + Mention)
+    Middleware->>Orchestration: Вызов AI Orchestrator (Model Slug, Prompt)
+    Orchestration->>KeyStore: Запрос и дешифровка API-ключа (Fernet/AES)
+    KeyStore-->>Orchestration: Расшифрованный API-ключ
+    
+    Note over Orchestration,Provider: Начало замера Latency (Start Time)
+    Orchestration->>Provider: Stream Request (Model, System Prompt, Context)
+    
+    loop Chunk Streaming (SSE / Tokens)
+        Provider-->>Orchestration: SSE Chunk (Token Delta)
+        Orchestration-->>UI: Стриминг токена в чат
+    end
+    
+    Provider-->>Orchestration: Stream Complete (Usage Stats: Prompt/Completion Tokens)
+    Note over Orchestration: Завершение замера Latency (End Time)
+    Orchestration->>KeyStore: Запись AIUsageLog (Tokens, Latency, Cost)
+    Orchestration-->>UI: Финальное сообщение сохранено
+```
+
+---
+
+### <img src="https://img.shields.io/badge/3._IMAGE_GENERATION_STUDIO-EC4899?style=for-the-badge&logo=artstation&logoColor=white" alt="3. Image Generation Studio" />
+
+**Студия генерации изображений и медиа**
+
 - **Выделенный интерфейс `/image-chat/`**: Генерация графики по текстовым описаниям с сохранением в историю.
 - **Журнал артов**: Хранение параметров промпта, размеров, времени рендеринга и использованной модели.
 - **Голосовые и медиасообщения**: Отправка аудиофайлов, изображений и автоматическое распознавание внешних графических ссылок.
 
-### 4. Интерактивные мини-игры и симуляторы
+#### Image Generation Pipeline
+
+```mermaid
+flowchart LR
+    classDef input fill:#1E1B4B,stroke:#8B5CF6,stroke-width:2px,color:#fff;
+    classDef router fill:#311B92,stroke:#A855F7,stroke-width:2px,color:#fff;
+    classDef model fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#fff;
+    classDef storage fill:#064E3B,stroke:#10B981,stroke-width:2px,color:#fff;
+
+    UserPrompt["Ввод Промпта & Настроек<br/>(/image-chat/)"]:::input --> PipelineRouter["Image Generation Router"]:::router
+
+    PipelineRouter --> Choice{"Выбор модели генерации"}
+
+    Choice -- "Krea 2 Medium" --> Krea["Krea 2 Medium Turbo<br/>(3.00 ₽ / фото)"]:::model
+    Choice -- "Riverflow 2K" --> Riverflow["Riverflow V2.5 Fast<br/>(4.25 ₽ / фото)"]:::model
+    Choice -- "FLUX.2 Pro" --> Flux["FLUX.2 Pro<br/>(5.50 ₽ / фото)"]:::model
+    Choice -- "Grok Imagine" --> Grok["SpaceXAI: Grok Imagine<br/>(8.00 ₽ / фото)"]:::model
+    Choice -- "Qwen Image 3" --> Qwen["Qwen Image 3 Pro<br/>(6.30 ₽ / фото)"]:::model
+
+    Krea --> RenderEngine["Rendering & Image Processing"]
+    Riverflow --> RenderEngine
+    Flux --> RenderEngine
+    Grok --> RenderEngine
+    Qwen --> RenderEngine
+
+    RenderEngine --> SaveGallery["Сохранение в галерею / Журнал артов"]:::storage
+    SaveGallery --> UIOutput["Отображение арта & Metadata<br/>(Prompt, Seed, Latency, Cost)"]:::input
+```
+
+---
+
+### <img src="https://img.shields.io/badge/4._INTERACTIVE_MINI--GAMES-10B981?style=for-the-badge&logo=gamepad&logoColor=white" alt="4. Interactive Mini-Games" />
+
+**Интерактивные мини-игры и симуляторы**
+
 - **Игра «Угадай фильм»**: Сессионная викторина с выдачей подсказок, валидацией ответов и фиксацией побед.
 - **Фоновые боты**: Симуляторы собеседников с уникальными характерами и динамикой споров для тестирования активности.
 
-### 5. Геймификация и система наград
+#### State Machine викторины «Угадай фильм»
+
+```mermaid
+stateDiagram-v2
+    [*] --> Idle: Создание / Открытие комнаты
+    
+    state MovieQuizEngine {
+        Idle --> GameStarted: Вызов /start_game/
+        GameStarted --> GeneratingPrompt: Запрос загадки у AI
+        GeneratingPrompt --> AwaitingAnswers: Публикация текстовой загадки / эмодзи
+        
+        state AwaitingAnswers {
+            [*] --> Listening: Ожидание сообщений игроков
+            Listening --> ValidateAnswer: Новое сообщение от участника
+            ValidateAnswer --> AnswerIncorrect: Ответ не совпал
+            AnswerIncorrect --> HintRequested: Наступил таймаут / Команда @hint
+            HintRequested --> Listening: AI генерирует подсказку
+            ValidateAnswer --> AnswerCorrect: Ответ совпал с тайтлом
+        }
+        
+        AnswerCorrect --> Rewarding: Фиксация победы в БД
+        Rewarding --> UpdateProfile: Начисление баллов & Unlock достижений
+        UpdateProfile --> GameCompleted: Объявление победителя в чате
+    }
+    
+    GameCompleted --> Idle: Готовность к следующему раунду
+```
+
+---
+
+### <img src="https://img.shields.io/badge/5._GAMIFICATION_%26_REWARDS-F59E0B?style=for-the-badge&logo=trophy&logoColor=white" alt="5. Gamification & Rewards" />
+
+**Геймификация и система наград**
+
 - **Достижения с Lottie-анимациями**: Награды за регистрацию, количество отправленных сообщений (10, 100, 1000), создание комнат, инвайты и стрики.
 - **Бонусный Premium**: Автоматическое продление Premium-подписки за выполнение целевых действий.
 - **Трекер стриков**: Валидация непрерывной ежедневной активности пользователей.
