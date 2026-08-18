@@ -6,8 +6,9 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=2800&pause=1000&color=A855F7&background=0D111700&center=true&vCenter=true&width=850&lines=NextRoom+-+Real-Time+AI-Powered+Chat+Platform;Multi-LLM+Orchestration+%7C+Image+Generation+%7C+Mini-Games;Powered+by+Django+5%2C+PostgreSQL+16+%26+TailwindCSS;Cryptographic+Security+%26+Modular+AI+Routing" alt="Animated Banner" />
 </p>
 
+
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=X2X13211&label=Views&color=8B5CF6" alt="Views" />
+  <img src="https://api.visitorbadge.io/api/visitors?path=X2X13211.NextRoom&label=VIEWS&labelColor=555555&countColor=8B5CF6&style=for-the-badge" alt="Views" />
   <img src="https://img.shields.io/github/stars/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" alt="Stars" />
   <img src="https://img.shields.io/github/forks/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" alt="Forks" />
   <img src="https://img.shields.io/github/issues/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" alt="Issues" />
@@ -26,13 +27,13 @@
   <a href="https://nextroom.vercel.app">
     <img 
       src="https://img.shields.io/badge/ОТКРЫТЬ_ПРИЛОЖЕНИЕ_NEXTROOM-8B5CF6?style=for-the-badge&logo=vercel&logoColor=white&labelColor=6D28D9" 
-      alt="Открыть NextRoom" 
+      alt="Открыть приложение NextRoom" 
       height="46" 
-    />
+      />
   </a>
 </p>
 
-## <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Idea-Dark.svg" width="24" height="24" valign="middle" /> Обзор платформы
+## <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Rocket.svg" width="24" height="24" valign="middle" /> Обзор платформы
 
 **NextRoom** — это многофункциональная веб-платформа реального времени для групповой и приватной коммуникации, объединяющая возможности современных мессенджеров, гибкую организацию пространств по интересам и прямое взаимодействие с передовыми большими языковыми моделями (LLM) и генераторами медиа.
 
@@ -96,7 +97,7 @@ flowchart TD
     BillingEngine --> PostgresDB
 ```
 
-## <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Postgres-Dark.svg" width="24" height="24" valign="middle" /> Модели данных и связи (Entity-Relationship)
+## <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/PostgreSQL-Dark.svg" width="24" height="24" valign="middle" /> Модели данных и связи (Entity-Relationship)
 
 ```mermaid
 erDiagram
@@ -234,11 +235,11 @@ erDiagram
 </tr>
 </table>
 
-## <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/OpenAI.svg" width="24" height="24" valign="middle" /> Каталог поддерживаемых AI-моделей
+## Каталог поддерживаемых AI-моделей
 
 Платформа поддерживает гибкий мультипровайдерный хаб, включающий в себя новейшие открытые и проприетарные языковые модели, а также специализированные диффузионные генераторы изображений:
 
-### 💬 Большие языковые модели (LLM & Мультимодальность)
+### Большие языковые модели (LLM & Мультимодальность)
 
 | Модель | Провайдер | Контекст | Назначение и особенности |
 | :--- | :--- | :--- | :--- |
@@ -249,17 +250,17 @@ erDiagram
 | <img src="https://assets.routerai.ru/assets/icons/z-ai-f9c74318.png" width="18" height="18" valign="middle" /> **GLM 4.7 Flash** | RouterAI / Cerebras | 203K токенов | Оптимизирована под агентное кодирование, долгосрочное планирование и глубокое сотрудничество с API |
 | <img src="https://assets.routerai.ru/assets/icons/google-80717409.svg" width="18" height="18" valign="middle" /> **Gemma 4 (31B Instruct)** | RouterAI / Cerebras | 262K токенов | Плотная мультимодальная модель от Google DeepMind с поддержкой 140+ языков и function calling |
 | <img src="https://assets.routerai.ru/assets/icons/google-80717409.svg" width="18" height="18" valign="middle" /> **Gemini 2.5 Flash Lite** | RouterAI | 1M токенов | Ультранизкая задержка, быстрый стриминг токенов и настраиваемый уровень глубины рассуждений |
-| <img src="https://assets.routerai.ru/assets/icons/openai-4ede729e.svg" width="18" height="18" valign="middle" /> **OpenAI GPT-OSS (120B)** | RouterAI / Groq / Cerebras | 131K токенов | Открытые веса MoE от OpenAI (117B параметров) для сложных логических рассуждений и структурированного вывода |
-| <img src="https://assets.routerai.ru/assets/icons/openai-4ede729e.svg" width="18" height="18" valign="middle" /> **OpenAI GPT-OSS (20B)** | RouterAI / Groq / Cerebras | 131K токенов | Компактная быстрая модель в формате ответов Harmony с поддержкой вызова функций и инструментов |
-| <img src="https://assets.routerai.ru/assets/icons/openai-4ede729e.svg" width="18" height="18" valign="middle" /> **OpenAI GPT-OSS Safeguard 20B** | RouterAI / Groq | 131K токенов | Модель безопасности и модерации для задач фильтрации, классификации и контроля контекста |
+| <img src="https://api.iconify.design/logos:openai-icon.svg" width="18" height="18" valign="middle" /> **OpenAI GPT-OSS (120B)** | RouterAI / Groq / Cerebras | 131K токенов | Открытые веса MoE от OpenAI (117B параметров) для сложных логических рассуждений и структурированного вывода |
+| <img src="https://api.iconify.design/logos:openai-icon.svg" width="18" height="18" valign="middle" /> **OpenAI GPT-OSS (20B)** | RouterAI / Groq / Cerebras | 131K токенов | Компактная быстрая модель в формате ответов Harmony с поддержкой вызова функций и инструментов |
+| <img src="https://api.iconify.design/logos:openai-icon.svg" width="18" height="18" valign="middle" /> **OpenAI GPT-OSS Safeguard 20B** | RouterAI / Groq | 131K токенов | Модель безопасности и модерации для задач фильтрации, классификации и контроля контекста |
 | <img src="https://cdn.simpleicons.org/meta/0668E1" width="18" height="18" valign="middle" /> **Llama 3.3 (70B Versatile)** | Groq | 128K токенов | Мощная открытая модель Meta с аппаратным ускорением инференса на чипах Groq LPU |
 | <img src="https://cdn.simpleicons.org/meta/0668E1" width="18" height="18" valign="middle" /> **Llama 3.1 (8B Instant)** | Groq | 128K токенов | Мгновенный отклик для интерактивных текстовых сценариев, диалогов и экспресс-генерации |
 | <img src="https://cdn.simpleicons.org/meta/0668E1" width="18" height="18" valign="middle" /> **Meta Llama Prompt Guard 2** | Groq | 128K токенов | Специализированные фильтры безопасности (22M / 86M) для защиты от prompt injection и атак |
-| <img src="https://cdn.simpleicons.org/openrouter/6366F1" width="18" height="18" valign="middle" /> **OpenRouter Auto Beta** | OpenRouter | 1M токенов | Динамическая авто-маршрутизация запросов к наиболее подходящей и доступной модели сети |
-| <img src="https://cdn.simpleicons.org/groq/F55036" width="18" height="18" valign="middle" /> **Groq Auto** | Groq | 128K токенов | Автоматический выбор доступной модели на платформе аппаратных ускорителей Groq |
-| <img src="https://assets.routerai.ru/assets/icons/cerebras.svg" width="18" height="18" valign="middle" /> **Cerebras Auto** | Cerebras | 128K токенов | Интеллектуальный балансировщик задач на суперкомпьютерной архитектуре Cerebras WSE |
+| <img src="https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/openrouter.svg" width="18" height="18" valign="middle" /> **OpenRouter Auto Beta** | OpenRouter | 1M токенов | Динамическая авто-маршрутизация запросов к наиболее подходящей и доступной модели сети |
+| <img src="https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/groq.svg" width="18" height="18" valign="middle" /> **Groq Auto** | Groq | 128K токенов | Автоматический выбор доступной модели на платформе аппаратных ускорителей Groq |
+| <img src="https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/cerebras.svg" width="18" height="18" valign="middle" /> **Cerebras Auto** | Cerebras | 128K токенов | Интеллектуальный балансировщик задач на суперкомпьютерной архитектуре Cerebras WSE |
 
-### 🎨 Модели генерации и обработки изображений (AI Image Studio)
+### Модели генерации и обработки изображений (AI Image Studio)
 
 | Модель | Провайдер | Стоимость | Разрешение / Особенности |
 | :--- | :--- | :--- | :--- |
@@ -401,15 +402,6 @@ python manage.py runserver
 <p align="center">
   <a href="https://github.com/X2X13211/NextRoom/commits/main">
     <img src="https://github-readme-activity-graph.vercel.app/graph?username=X2X13211&theme=tokyonight&color=8B5CF6&line=8B5CF6&point=ffffff&hide_border=true&bg_color=0D1117" alt="Commit activity graph" width="100%" />
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/X2X13211/NextRoom/commits/main">
-    <img src="https://img.shields.io/github/commit-activity/m/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6&label=Monthly%20activity" alt="Commits per month" />
-  </a>
-  <a href="https://github.com/X2X13211/NextRoom/commits/main">
-    <img src="https://img.shields.io/github/last-commit/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6&label=Last%20commit" alt="Last commit" />
   </a>
 </p>
 
