@@ -10,8 +10,6 @@
 <p align="center">
   <img src="https://api.visitorbadge.io/api/visitors?path=X2X13211.NextRoom&label=VIEWS&labelColor=555555&countColor=8B5CF6&style=for-the-badge" alt="Views" />
   <img src="https://img.shields.io/github/stars/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" alt="Stars" />
-  <img src="https://img.shields.io/github/forks/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" alt="Forks" />
-  <img src="https://img.shields.io/github/issues/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" alt="Issues" />
   <img src="https://img.shields.io/github/license/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" alt="License" />
   <img src="https://img.shields.io/github/last-commit/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" alt="Last Commit" />
   <img src="https://img.shields.io/github/repo-size/X2X13211/NextRoom?style=for-the-badge&color=8B5CF6" alt="Repo Size" />
@@ -19,7 +17,7 @@
 
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=python,django,postgres,tailwind,js,docker,linux,git,html,css,postman,redis" alt="Tech Stack Icons" />
+    <img src="https://skillicons.dev/icons?i=python,django,postgres,tailwind,js,docker,git,html,css,redis" alt="Tech Stack Icons" />
   </a>
 </p>
 
@@ -36,8 +34,6 @@
 ## <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Rocket.svg" width="24" height="24" valign="middle" /> Обзор платформы
 
 **NextRoom** — это многофункциональная веб-платформа реального времени для групповой и приватной коммуникации, объединяющая возможности современных мессенджеров, гибкую организацию пространств по интересам и прямое взаимодействие с передовыми большими языковыми моделями (LLM) и генераторами медиа.
-
-Проект спроектирован для обеспечения комфортного командного взаимодействия, образовательных дискуссий, проведения интеллектуальных мини-игр и генерации медиаконтента в едином бесшовном интерфейсе с адаптивным дизайном и аппаратным шифрованием приватных данных.
 
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=2000&pause=800&color=9333EA&center=true&vCenter=true&width=750&lines=21%2B+Thematic+Categories;Multi-Provider+AI+Hub+(RouterAI%2C+Groq%2C+OpenRouter);Interactive+AI+Mini-Games+%26+Simulators;AI+Image+Generation+Studio" alt="Features subtitle" />
@@ -149,12 +145,6 @@ erDiagram
 ```
 
 ## <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/GraphQL-Dark.svg" width="24" height="24" valign="middle" /> Функциональные возможности
-
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=2500&pause=1000&color=A855F7&background=0D111700&center=true&vCenter=true&width=800&lines=1.+Spaces+%26+Room+Management;2.+Multi-Provider+AI+Orchestration;3.+AI+Image+Generation+Studio;4.+Interactive+Mini-Games;5.+Gamification+%26+Reward+System" alt="Функциональные возможности NextRoom" />
-</p>
-
----
 
 ### <img src="https://img.shields.io/badge/1._ПРОСТРАНСТВА_И_КОМНАТЫ-8B5CF6?style=for-the-badge&logo=discourse&logoColor=white" alt="1. Пространства и комнаты" />
 
